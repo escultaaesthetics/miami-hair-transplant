@@ -1,0 +1,83 @@
+/* ============================================================
+   Miami Hair Transplant — Brand Tokens v1.0
+   Source of truth: official logo files (images/brand/).
+   Import this file to build any brand surface (web, landing,
+   email). Full usage rules live in brand.html.
+   ============================================================ */
+
+:root {
+  /* --- Core brand colors (extracted from logo artwork) --- */
+  --brand-espresso: #2c0e0b;        /* official dark ground (logo bg) */
+  --brand-espresso-2: #3d1712;      /* raised surfaces on espresso */
+  --brand-champagne: #f7eda7;       /* gold ramp: light end */
+  --brand-honey: #ddbf61;           /* gold ramp: midpoint */
+  --brand-gold: #c49528;            /* gold ramp: deep end */
+  --brand-white: #ffffff;
+
+  /* --- Derived, accessibility-safe --- */
+  --brand-gold-ink: #8a6410;        /* gold for TEXT on white (4.5:1+) */
+  --brand-ink: #241009;             /* body text on white (warm near-black) */
+  --brand-ink-soft: #5c4a41;        /* secondary text on white */
+  --brand-cream-text: #f4ead9;      /* body text on espresso */
+  --brand-muted-on-dark: #c9b49a;   /* secondary text on espresso */
+  --brand-line: #e8ddcf;            /* hairlines on white */
+  --brand-line-dark: #55352c;       /* hairlines on espresso */
+
+  /* --- The official gold gradient (from logo artwork) --- */
+  --brand-gradient-gold: linear-gradient(90deg, #f7eda7 0%, #ddbf61 50%, #c49528 100%);
+  --brand-gradient-gold-v: linear-gradient(170deg, #f7eda7 0%, #ddbf61 50%, #c49528 100%);
+
+  /* --- Typography --- */
+  /* Logo lockup is set in Helvetica Neue: never retype it in HTML.
+     Web voice: Archivo (Google Fonts), weights below. */
+  --brand-font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --brand-weight-body: 400;
+  --brand-weight-label: 600;
+  --brand-weight-heading: 800;
+  --brand-tracking-caps: 0.22em;    /* echoes the MIAMI lockup tracking */
+  --brand-tracking-display: -0.02em;
+
+  /* --- Type scale (fluid) --- */
+  --brand-text-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --brand-text-lead: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --brand-text-h3: clamp(1.6rem, 1.3rem + 1.2vw, 2.25rem);
+  --brand-text-h2: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  --brand-text-h1: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
+
+  /* --- Shape & spacing --- */
+  --brand-radius: 12px;
+  --brand-radius-lg: 18px;
+  --brand-radius-pill: 999px;
+  --brand-space-section: clamp(4.5rem, 10vw, 8.5rem);
+  --brand-container: 1200px;
+}
+
+/* --- Canonical button recipes --- */
+.brand-btn-gold {
+  background: var(--brand-gradient-gold);
+  color: var(--brand-espresso);
+  font-family: var(--brand-font);
+  font-weight: 700;
+  border: 0;
+  border-radius: 10px;
+  padding: 1rem 1.6rem;
+}
+
+.brand-btn-ghost-gold {
+  background: transparent;
+  color: var(--brand-honey);
+  font-family: var(--brand-font);
+  font-weight: 700;
+  border: 2px solid var(--brand-gold);
+  border-radius: 10px;
+  padding: 1rem 1.6rem;
+}
+
+/* --- Canonical caps label (echoes logo lockup) --- */
+.brand-label {
+  font-family: var(--brand-font);
+  font-weight: var(--brand-weight-label);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: var(--brand-tracking-caps);
+}

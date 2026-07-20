@@ -1,0 +1,11 @@
+# Source material (raw patient photos, zips) — not for the web repo
+Informacion/
+_archive/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Claude / tooling
+.claude/

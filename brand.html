@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Marca | Miami Hair Transplant</title>
+  <meta name="description" content="Manual de identidad de marca de Miami Hair Transplant: logo, color, tipografía y reglas de uso.">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/brand-tokens.css">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--brand-espresso);
+      color: var(--brand-cream-text);
+      font-family: var(--brand-font);
+      font-size: var(--brand-text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+    section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+    h1, h2, h3 { font-weight: 800; letter-spacing: var(--brand-tracking-display); line-height: 1.08; margin: 0 0 0.5em; }
+    h1 { font-size: var(--brand-text-h1); color: #fff; }
+    h2 { font-size: var(--brand-text-h2); color: #fff; }
+    h3 { font-size: 1.25rem; color: var(--brand-champagne); }
+    p { max-width: 62ch; }
+    .muted { color: var(--brand-muted-on-dark); }
+
+    .kicker {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: var(--brand-tracking-caps);
+      color: var(--brand-honey);
+      margin-bottom: 1rem;
+    }
+
+    .rule { border: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--brand-gold) 50%, transparent); margin: 0; }
+
+    /* Cover */
+    .cover { min-height: min(88vh, 780px); display: grid; place-content: center; text-align: center; padding-block: 4rem; }
+    .cover img { width: min(360px, 70vw); margin-inline: auto; margin-bottom: 2.5rem; }
+    .cover .muted { max-width: 46ch; margin-inline: auto; }
+
+    /* Logo grid */
+    .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .logo-cell { border: 1px solid var(--brand-line-dark); border-radius: var(--brand-radius-lg); overflow: hidden; }
+    .logo-cell .stage { display: grid; place-items: center; aspect-ratio: 1; padding: 2rem; }
+    .logo-cell img { width: 100%; max-width: 220px; }
+    .stage-espresso { background: var(--brand-espresso-2); }
+    .stage-white { background: #fff; }
+    .stage-photo { background: url("images/cases/case-02/1.jpg") center / cover; }
+    .logo-cell figcaption { padding: 1rem 1.25rem; font-size: 0.9rem; border-top: 1px solid var(--brand-line-dark); }
+    .logo-cell figcaption strong { color: #fff; display: block; }
+    .logo-cell figcaption span { color: var(--brand-muted-on-dark); }
+    figure { margin: 0; }
+
+    ul.rules { padding-left: 1.2rem; }
+    ul.rules li { margin-bottom: 0.5rem; max-width: 60ch; }
+    ul.rules .si { color: var(--brand-honey); font-weight: 700; }
+    ul.rules .no { color: #e08a7a; font-weight: 700; }
+
+    /* Color */
+    .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .swatch { border-radius: var(--brand-radius-lg); overflow: hidden; border: 1px solid var(--brand-line-dark); }
+    .swatch .chip { height: 120px; }
+    .swatch .data { padding: 1rem 1.15rem; font-size: 0.85rem; background: var(--brand-espresso-2); }
+    .swatch .data strong { color: #fff; display: block; font-size: 0.95rem; }
+    .swatch .data code { color: var(--brand-champagne); font-family: ui-monospace, Menlo, monospace; font-size: 0.8rem; }
+    .swatch .data span { display: block; color: var(--brand-muted-on-dark); margin-top: 0.35rem; }
+
+    .prop-bar { display: flex; height: 56px; border-radius: 10px; overflow: hidden; margin-top: 2rem; border: 1px solid var(--brand-line-dark); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; }
+    .prop-bar div { display: grid; place-items: center; }
+
+    .gradient-demo { height: 96px; border-radius: var(--brand-radius-lg); background: var(--brand-gradient-gold); margin-top: 2rem; }
+    pre.code {
+      background: var(--brand-espresso-2);
+      border: 1px solid var(--brand-line-dark);
+      border-radius: var(--brand-radius);
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 0.82rem;
+      color: var(--brand-champagne);
+      line-height: 1.7;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--brand-line-dark); }
+    th { color: var(--brand-honey); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.14em; }
+    td strong { color: #fff; }
+    .pass { color: #a8d5a2; font-weight: 700; }
+    .fail { color: #e08a7a; font-weight: 700; }
+
+    /* Type specimens */
+    .specimen { border: 1px solid var(--brand-line-dark); border-radius: var(--brand-radius-lg); padding: clamp(1.5rem, 4vw, 2.5rem); margin-top: 1.5rem; background: var(--brand-espresso-2); }
+    .specimen .demo { color: #fff; margin: 0 0 0.75rem; }
+    .specimen .spec { font-size: 0.82rem; color: var(--brand-muted-on-dark); font-family: ui-monospace, Menlo, monospace; }
+
+    /* UI samples */
+    .ui-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.5rem; }
+    .brand-btn-gold, .brand-btn-ghost-gold { font-size: 1rem; cursor: pointer; }
+
+    .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+
+    footer { padding: 2.5rem 0 3rem; font-size: 0.85rem; color: var(--brand-muted-on-dark); }
+  </style>
+</head>
+<body>
+
+  <!-- ============ PORTADA ============ -->
+  <section class="cover wrap">
+    <img src="images/brand/logo-gold.svg" alt="Logo de Miami Hair Transplant en oro">
+    <h1>Manual de Marca</h1>
+    <p class="muted">Identidad visual de Miami Hair Transplant. Versión 1.0 · Julio 2026. Todo lo necesario para diseñar la web, campañas y material de clínica sin romper la marca.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ LOGO ============ -->
+  <section class="wrap" id="logo">
+    <span class="kicker">01 · Logotipo</span>
+    <h2>Tres versiones, una regla por fondo</h2>
+    <p class="muted">El logotipo combina el símbolo (folículo y cabello en trazo circular) con el lockup tipográfico HAIR TRANSPLANT MIAMI. Los archivos maestros viven en <code style="color: var(--brand-champagne)">images/brand/</code>.</p>
+
+    <div class="logo-grid">
+      <figure class="logo-cell">
+        <div class="stage stage-espresso"><img src="images/brand/logo-gold.svg" alt="Versión oro sobre fondo espresso"></div>
+        <figcaption><strong>Oro (principal)</strong><span>Sobre Espresso o fondos oscuros. Es la versión preferida de la marca.</span></figcaption>
+      </figure>
+      <figure class="logo-cell">
+        <div class="stage stage-espresso"><img src="images/brand/logo-white.svg" alt="Versión blanca sobre fondo espresso"></div>
+        <figcaption><strong>Blanco</strong><span>Sobre fondos oscuros cuando el oro compite con la fotografía o el soporte es monocromo.</span></figcaption>
+      </figure>
+      <figure class="logo-cell">
+        <div class="stage stage-photo"><img src="images/brand/logo-white.svg" alt="Versión blanca sobre fotografía"></div>
+        <figcaption><strong>Sobre fotografía</strong><span>Blanco u oro sobre zonas oscuras y despejadas de la imagen. Nunca sobre zonas claras o con ruido.</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3>Área de respeto y tamaño mínimo</h3>
+        <ul class="rules">
+          <li>Deja libre alrededor del logo un margen igual a la altura de la letra "M" de MIAMI.</li>
+          <li>Tamaño mínimo digital: <strong style="color:#fff">120 px</strong> de ancho (símbolo + lockup). Por debajo, usa solo el símbolo.</li>
+          <li>La versión Color (con fondo espresso incluido) se usa como pieza cerrada: avatar, favicon, sello.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Usos incorrectos</h3>
+        <ul class="rules">
+          <li><span class="no">✕</span> No cambiar el degradado dorado por un color plano ajeno a la paleta.</li>
+          <li><span class="no">✕</span> No poner la versión oro sobre fondos claros (pierde contraste).</li>
+          <li><span class="no">✕</span> No retipear el lockup HAIR TRANSPLANT MIAMI con otra fuente: es artwork, no texto.</li>
+          <li><span class="no">✕</span> No deformar, rotar, añadir sombras ni contornos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ COLOR ============ -->
+  <section class="wrap" id="color">
+    <span class="kicker">02 · Color</span>
+    <h2>Espresso y oro, extraídos del propio logo</h2>
+    <p class="muted">La paleta sale directamente del artwork oficial: un marrón espresso casi negro como suelo y una rampa dorada de tres paradas como voz de la marca.</p>
+
+    <div class="swatches">
+      <div class="swatch">
+        <div class="chip" style="background:#2c0e0b"></div>
+        <div class="data"><strong>Espresso Noir</strong><code>#2C0E0B · rgb(44,14,11)</code><span>Fondo principal oscuro. 60% de la superficie de marca.</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#f7eda7"></div>
+        <div class="data"><strong>Champán</strong><code>#F7EDA7 · rgb(247,237,167)</code><span>Extremo claro de la rampa dorada. Brillos y texto destacado sobre oscuro.</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#ddbf61"></div>
+        <div class="data"><strong>Miel</strong><code>#DDBF61 · rgb(221,191,97)</code><span>Punto medio. Acentos, iconos y detalles sobre Espresso.</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#c49528"></div>
+        <div class="data"><strong>Oro Profundo</strong><code>#C49528 · rgb(196,149,40)</code><span>Extremo oscuro de la rampa. Bordes, hairlines y sellos.</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#ffffff"></div>
+        <div class="data"><strong>Blanco</strong><code>#FFFFFF</code><span>Fondo de secciones clínicas y texto principal sobre oscuro.</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#8a6410"></div>
+        <div class="data"><strong>Oro Tinta (derivado)</strong><code>#8A6410</code><span>Único oro aprobado para TEXTO sobre blanco (contraste AA).</span></div>
+      </div>
+    </div>
+
+    <div class="prop-bar" aria-label="Proporciones de uso del color">
+      <div style="flex: 60; background:#2c0e0b; color:#c9b49a;">ESPRESSO 60</div>
+      <div style="flex: 25; background:#ffffff; color:#241009;">BLANCO 25</div>
+      <div style="flex: 10; background: var(--brand-gradient-gold); color:#2c0e0b;">ORO 10</div>
+      <div style="flex: 5; background:#3d1712; color:#c9b49a;">5</div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">El degradado oficial</h3>
+    <div class="gradient-demo" role="img" aria-label="Degradado dorado oficial de champán a oro profundo"></div>
+    <pre class="code">--brand-gradient-gold: linear-gradient(90deg, #F7EDA7 0%, #DDBF61 50%, #C49528 100%);</pre>
+
+    <h3 style="margin-top: 3rem;">Combinaciones y accesibilidad (WCAG)</h3>
+    <table>
+      <thead><tr><th>Combinación</th><th>Contraste</th><th>Texto normal</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Champán sobre Espresso</strong></td><td>≈ 13:1</td><td class="pass">PASA AAA</td><td>Titulares y texto sobre oscuro</td></tr>
+        <tr><td><strong>Miel sobre Espresso</strong></td><td>≈ 9:1</td><td class="pass">PASA AAA</td><td>Acentos y labels sobre oscuro</td></tr>
+        <tr><td><strong>Oro Profundo sobre Espresso</strong></td><td>≈ 6:1</td><td class="pass">PASA AA</td><td>Detalles sobre oscuro</td></tr>
+        <tr><td><strong>Espresso sobre degradado oro</strong></td><td>≥ 6:1</td><td class="pass">PASA AA</td><td>Texto de botones dorados</td></tr>
+        <tr><td><strong>Oro Tinta sobre Blanco</strong></td><td>≈ 5.3:1</td><td class="pass">PASA AA</td><td>Links y acentos de texto en claro</td></tr>
+        <tr><td><strong>Oro Profundo sobre Blanco</strong></td><td>≈ 2.7:1</td><td class="fail">NO PASA</td><td>Solo decorativo, nunca texto</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ TIPOGRAFÍA ============ -->
+  <section class="wrap" id="tipografia">
+    <span class="kicker">03 · Tipografía</span>
+    <h2>Archivo, de la 400 a la 900</h2>
+    <p class="muted">El lockup del logo está compuesto en Helvetica Neue y nunca se retipea. Para todo lo demás (web, campañas, presentaciones) la voz tipográfica es <strong style="color:#fff">Archivo</strong> (Google Fonts, variable), una grotesk del mismo linaje que escala de texto clínico a titular rotundo.</p>
+
+    <div class="specimen">
+      <p class="demo" style="font-size: var(--brand-text-h1); font-weight: 800; letter-spacing: -0.022em; line-height: 1.05;">Your hair back.</p>
+      <p class="spec">H1 · Archivo 800 · clamp(2.5rem → 5rem) · tracking -0.022em · leading 1.05</p>
+    </div>
+    <div class="specimen">
+      <p class="demo" style="font-size: var(--brand-text-h2); font-weight: 800; letter-spacing: -0.02em;">Sixteen documented cases</p>
+      <p class="spec">H2 · Archivo 800 · clamp(2rem → 3.25rem) · tracking -0.02em</p>
+    </div>
+    <div class="specimen">
+      <p class="demo" style="font-size: var(--brand-text-lead); font-weight: 400; color: var(--brand-cream-text);">Every treatment starts with a scalp evaluation and an honest recommendation.</p>
+      <p class="spec">Lead · Archivo 400 · clamp(1.25rem → 1.5rem) · leading 1.5</p>
+    </div>
+    <div class="specimen">
+      <p class="demo" style="font-size: 1rem; font-weight: 400;">Body: FUE hair transplants and PRP therapy performed in Miami by a board-certified practitioner, with a plan built around your hairline, your density, and your goals.</p>
+      <p class="spec">Body · Archivo 400 · 1rem–1.125rem · leading 1.6 · máx 68ch</p>
+    </div>
+    <div class="specimen">
+      <p class="demo brand-label" style="color: var(--brand-honey);">Hair Restoration Clinic</p>
+      <p class="spec">Label · Archivo 600 · 0.75rem · MAYÚSCULAS · tracking 0.22em (eco del lockup MIAMI)</p>
+    </div>
+
+    <ul class="rules" style="margin-top: 2rem;">
+      <li><span class="si">✓</span> Titulares siempre en 800; nunca en 400 estirada ni en 900 condensada.</li>
+      <li><span class="si">✓</span> Un solo label en mayúsculas por bloque; es un acento, no un sistema de secciones.</li>
+      <li><span class="no">✕</span> No usar serifas ni scripts: la marca es grotesk, clínica y directa.</li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ UI ============ -->
+  <section class="wrap" id="ui">
+    <span class="kicker">04 · Componentes UI</span>
+    <h2>Botones, enlaces y detalles</h2>
+    <p class="muted">Recetas canónicas incluidas en <code style="color: var(--brand-champagne)">css/brand-tokens.css</code>. El botón principal lleva el degradado oficial con texto Espresso encima.</p>
+
+    <div class="ui-row">
+      <button class="brand-btn-gold">Book a free consultation</button>
+      <button class="brand-btn-ghost-gold">See real results</button>
+      <a href="#ui" style="color: var(--brand-honey); font-weight: 600;">Enlace sobre oscuro</a>
+    </div>
+
+    <ul class="rules" style="margin-top: 2rem;">
+      <li><span class="si">✓</span> Radio de esquinas: 10–12 px en botones y tarjetas, 18 px en contenedores grandes, píldora solo en labels y el CTA del nav.</li>
+      <li><span class="si">✓</span> Hairlines doradas de 1 px (degradado a transparente) como separadores de secciones oscuras.</li>
+      <li><span class="no">✕</span> Nunca texto dorado claro (Champán/Miel) sobre blanco: usar Oro Tinta.</li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ FOTOGRAFÍA Y VOZ ============ -->
+  <section class="wrap" id="foto">
+    <span class="kicker">05 · Fotografía y voz</span>
+    <h2>Prueba real, sin retoque</h2>
+    <div class="two-col">
+      <div>
+        <h3>Fotografía</h3>
+        <ul class="rules">
+          <li><span class="si">✓</span> Antes/después con la misma luz, mismo encuadre y fondo neutro; separador dorado entre las dos mitades (formato ya usado en los collages de la clínica).</li>
+          <li><span class="si">✓</span> Retratos de equipo con bata, luz cálida y fondo despejado.</li>
+          <li><span class="no">✕</span> Sin filtros, sin retoque de piel ni de densidad capilar; la credibilidad es la marca.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Voz</h3>
+        <ul class="rules">
+          <li><span class="si">✓</span> Honesta y específica: números de injertos, meses de evolución, nombres reales del equipo.</li>
+          <li><span class="si">✓</span> Bilingüe: inglés como idioma de la web v1; español nativo en la clínica.</li>
+          <li><span class="no">✕</span> Sin promesas absolutas ("recupera todo tu pelo"), sin urgencia artificial ni descuentos agresivos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ ARCHIVOS ============ -->
+  <section class="wrap" id="assets">
+    <span class="kicker">06 · Archivos del kit</span>
+    <h2>Dónde vive cada cosa</h2>
+    <table>
+      <thead><tr><th>Archivo</th><th>Qué es</th></tr></thead>
+      <tbody>
+        <tr><td><strong>images/brand/logo-gold.svg</strong></td><td>Logo oro sobre transparente (versión principal, fondos oscuros)</td></tr>
+        <tr><td><strong>images/brand/logo-white.svg</strong></td><td>Logo blanco sobre transparente (fondos oscuros y fotografía)</td></tr>
+        <tr><td><strong>images/brand/logo-color.svg</strong></td><td>Pieza cerrada con fondo Espresso incluido (avatares, sellos)</td></tr>
+        <tr><td><strong>css/brand-tokens.css</strong></td><td>Tokens de color, degradado, tipografía y recetas de botones listos para importar</td></tr>
+        <tr><td><strong>brand.html</strong></td><td>Este manual</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="wrap">
+    Miami Hair Transplant · Manual de Marca v1.0 · Julio 2026 · Uso interno y de proveedores de diseño.
+  </footer>
+
+</body>
+</html>
