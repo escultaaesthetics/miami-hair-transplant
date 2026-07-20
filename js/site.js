@@ -45,7 +45,11 @@
         if (formLoaded) return;
         formLoaded = true;
         var frame = document.getElementById('inline-svnJf2EAuAwNGxMDC2Iy');
-        frame.src = frame.getAttribute('data-src');
+        // Cache-buster: append a timestamp so the browser always fetches the
+        // current form from GoHighLevel (style edits show up without a hard refresh).
+        var src = frame.getAttribute('data-src');
+        src += (src.indexOf('?') === -1 ? '?' : '&') + '_=' + Date.now();
+        frame.src = src;
         // form_embed.js resizes the iframe once the form has rendered; use
         // that height change as the "loaded" signal (the script may replace
         // the element, so load events are unreliable). 6s fallback.
