@@ -223,3 +223,84 @@
         io.observe(card);
       }
     });
+
+    // Testimonials slider: 3 cards per view, native scroll-snap.
+    // Arrows step one page (clientWidth); dots jump to a page. Clamped so it
+    // never overscrolls past the last card.
+    (function () {
+      var track = document.querySelector('.testi-grid');
+      if (!track) return;
+      var slider = track.closest('.testi-slider');
+      var prev = slider && slider.querySelector('.testi-arrow.prev');
+      var next = slider && slider.querySelector('.testi-arrow.next');
+      var dotsWrap = document.querySelector('.testi-dots');
+      if (!dotsWrap) return;
+
+      var cards = track.querySelectorAll('.testi-card').length;
+      function page() { return track.clientWidth; }
+      function maxScroll() { return track.scrollWidth - track.clientWidth; }
+      function pageCount() {
+        var max = maxScroll();
+        if (max <= 1 || page() <= 0) return 1;
+        // cap at one dot per card so a bad (0-width) layout read can't spawn junk
+        return Math.min(cards, Math.round(max / page()) + 1);
+      }
+      function activePage() {
+        if (maxScroll() <= 1 || page() <= 0) return 0;
+        return Math.round(track.scrollLeft / page());
+      }
+
+      function buildDots() {
+        var n = pageCount();
+        if (dotsWrap.children.length === n) return; // no relayout needed
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < n; i++) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Show reviews, page ' + (i + 1));
+          (function (idx) {
+            b.addEventListener('click', function () {
+              track.scrollTo({ left: Math.min(idx * page(), maxScroll()), behavior: 'smooth' });
+            });
+          })(i);
+          dotsWrap.appendChild(b);
+        }
+      }
+
+      function sync() {
+        var p = activePage();
+        var dots = dotsWrap.children;
+        for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === p);
+        if (prev) prev.disabled = track.scrollLeft <= 2;
+        if (next) next.disabled = track.scrollLeft >= maxScroll() - 2;
+      }
+
+      if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
+
+      var ticking = 0;
+      track.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = 1;
+        requestAnimationFrame(function () { ticking = 0; sync(); });
+      }, { passive: true });
+
+      function refresh() { buildDots(); sync(); }
+
+      var rt;
+      window.addEventListener('resize', function () {
+        clearTimeout(rt);
+        rt = setTimeout(refresh, 150);
+      }, { passive: true });
+      // Rebuild once the real layout is available (fonts/images can widen cards,
+      // and some embedded viewers report a 0-width viewport during load).
+      window.addEventListener('load', refresh);
+      if ('IntersectionObserver' in window) {
+        var tio = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { refresh(); }
+        }, { rootMargin: '200px 0px' });
+        tio.observe(slider || track);
+      }
+
+      refresh();
+    })();

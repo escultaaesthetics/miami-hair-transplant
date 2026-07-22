@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Internal / non-public pages
+Disallow: /brand.html
+Disallow: /_archive/
+Disallow: /Informacion/
+
+Sitemap: https://miahairtransplant.com/sitemap.xml
