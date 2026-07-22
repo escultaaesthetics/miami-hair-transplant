@@ -180,7 +180,9 @@
     }
 
     /* Steps */
-    .lp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .lp-steps-track .lp-step { flex: 0 0 calc((100% - 36px) / 3); min-width: 0; scroll-snap-align: start; }
+    @media (max-width: 900px) { .lp-steps-track .lp-step { flex-basis: calc((100% - 18px) / 2); } }
+    @media (max-width: 600px) { .lp-steps-track .lp-step { flex: 0 0 85%; scroll-snap-align: center; } }
     .lp-step { text-align: center; padding: 26px 22px; border: 1px solid rgba(217,171,83,.22); border-radius: 16px; background: rgba(20,15,10,.5); }
     .lp-step .n { width: 44px; height: 44px; margin: 0 auto 14px; border-radius: 50%;
       background: linear-gradient(180deg, #f0d79a, #d9ab53); color: #1a1206; font-weight: 800;
@@ -352,10 +354,13 @@
   <section class="lp-sec" style="padding-top:0">
     <h2>How It Works</h2>
     <p class="lp-sec-lede">Three simple steps, no pressure and no cost to start.</p>
-    <div class="lp-steps">
-      <div class="lp-step"><div class="n">1</div><h3>Send your photos</h3><p>Fill out the short form and attach a few photos of your hair. It takes a couple of minutes.</p></div>
-      <div class="lp-step"><div class="n">2</div><h3>Free specialist review</h3><p>Our team reviews your photos and hair loss pattern to see what fits your case.</p></div>
-      <div class="lp-step"><div class="n">3</div><h3>Your personalized plan</h3><p>A coordinator contacts you with your options, an approximate graft count, and pricing.</p></div>
+    <div class="lp-cases-slider">
+      <div class="lp-cases lp-steps-track">
+        <div class="lp-step"><div class="n">1</div><h3>Send your photos</h3><p>Fill out the short form and attach a few photos of your hair. It takes a couple of minutes.</p></div>
+        <div class="lp-step"><div class="n">2</div><h3>Free specialist review</h3><p>Our team reviews your photos and hair loss pattern to see what fits your case.</p></div>
+        <div class="lp-step"><div class="n">3</div><h3>Your personalized plan</h3><p>A coordinator contacts you with your options, an approximate graft count, and pricing.</p></div>
+      </div>
+      <div class="lp-cases-dots" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -495,14 +500,19 @@
         var frame = document.getElementById('inline-Bn4RA087rTBKpgsw9BiW');
         frame.src = frame.getAttribute('data-src');
         var wrap = document.getElementById('modal-form-wrap');
+        function done() { wrap.classList.add('loaded'); clearInterval(poll); }
+        // Primary signal: the iframe's own load event fires as soon as the GHL
+        // form page finishes loading (reliable and fast, cross-origin safe).
+        frame.addEventListener('load', done);
+        // Backups: GHL's resize postMessage, a height-change poll, and a timeout.
         window.addEventListener('message', function (e) {
-          if (typeof e.origin === 'string' && e.origin.indexOf('miahairtransplant.com') !== -1) wrap.classList.add('loaded');
+          if (typeof e.origin === 'string' && e.origin.indexOf('miahairtransplant.com') !== -1) done();
         });
         var poll = setInterval(function () {
           var fr = document.getElementById('inline-Bn4RA087rTBKpgsw9BiW');
-          if (fr && fr.style.height && fr.style.height !== '1430px') { wrap.classList.add('loaded'); clearInterval(poll); }
+          if (fr && fr.style.height && fr.style.height !== '1430px') { done(); }
         }, 300);
-        setTimeout(function () { wrap.classList.add('loaded'); clearInterval(poll); }, 6000);
+        setTimeout(done, 8000);
         var script = document.createElement('script');
         script.src = 'https://app.miahairtransplant.com/js/form_embed.js';
         document.body.appendChild(script);
@@ -540,11 +550,15 @@
       }
       function buildDots() {
         var n = pageCount();
-        if (dotsWrap.children.length === n) return;
+        // Everything fits in one view (e.g. 3 steps on desktop): no controls.
+        if (dotsWrap) dotsWrap.style.display = n <= 1 ? 'none' : '';
+        if (prev) prev.style.display = n <= 1 ? 'none' : '';
+        if (next) next.style.display = n <= 1 ? 'none' : '';
+        if (!dotsWrap || dotsWrap.children.length === n) return;
         dotsWrap.innerHTML = '';
         for (var i = 0; i < n; i++) {
           var b = document.createElement('button');
-          b.type = 'button'; b.setAttribute('aria-label', 'Before and after photos, page ' + (i + 1));
+          b.type = 'button'; b.setAttribute('aria-label', 'Page ' + (i + 1));
           (function (idx) {
             b.addEventListener('click', function () { track.scrollTo({ left: Math.min(idx * page(), maxScroll()), behavior: 'smooth' }); });
           })(i);
