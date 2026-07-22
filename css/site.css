@@ -749,15 +749,21 @@
       /* Swipe affordance: next card peeks; fade hints at the rail edges */
       .rail-hint { position: relative; }
 
-      /* Image grids on mobile: before/after full-width 1-up, clinic 2-up */
-      .ba-grid, .gallery-grid {
-        display: grid; gap: 10px;
+      /* Clinic gallery: 2-up grid on mobile */
+      .gallery-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
         overflow: visible; scroll-snap-type: none;
-        margin-inline: 0; padding: 0;
+        margin-inline: 0; padding: 0; grid-auto-rows: unset;
       }
-      .ba-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .ba-grid .ba-item { flex: none; width: auto; scroll-snap-align: none; }
+      /* Before/after: full-width horizontal slider (swipe one at a time) */
+      .ba-grid {
+        display: flex; gap: 12px;
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        margin-inline: -20px; padding: 2px 20px 8px;
+        scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      }
+      .ba-grid::-webkit-scrollbar { display: none; }
+      .ba-grid .ba-item { flex: 0 0 90%; width: auto; scroll-snap-align: center; }
       .gallery-grid { grid-auto-rows: unset; }
       .gallery-grid img, .gallery-grid img.wide {
         flex: none; width: 100%; height: 190px; scroll-snap-align: none;
