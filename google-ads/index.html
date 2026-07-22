@@ -192,10 +192,11 @@
 
     /* Reviews */
     /* Reviews slider (uses the shared .lp-cases rail) */
-    .lp-gbadge { display: flex; justify-content: center; align-items: center; gap: 10px; margin: -14px auto 30px;
-      padding: 9px 18px; width: max-content; max-width: 100%; border: 1px solid rgba(217,171,83,.3);
-      border-radius: 999px; background: rgba(20,15,10,.6); font-size: 13px; }
-    .lp-gbadge b { color: #f5efe4; } .lp-gbadge .st { color: #e8c87a; letter-spacing: .1em; font-size: 13px; }
+    .lp-gbadge { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px auto 34px;
+      padding: 11px 22px; width: max-content; max-width: 100%; border: 1px solid rgba(217,171,83,.28);
+      border-radius: 999px; background: rgba(20,15,10,.55); font-size: 14px; }
+    .lp-gbadge svg { flex: 0 0 auto; }
+    .lp-gbadge b { color: #f5efe4; font-weight: 800; } .lp-gbadge .st { color: #e8c87a; letter-spacing: .12em; font-size: 14px; }
     .lp-gbadge span { color: #b0a48d; font-weight: 600; }
     .lp-revs .lp-rev { flex: 0 0 calc((100% - 36px) / 3); scroll-snap-align: start; }
     .lp-rev { border: 1px solid rgba(217,171,83,.22); border-radius: 16px; padding: 24px; background: rgba(20,15,10,.6); display: flex; flex-direction: column; gap: 12px; }
@@ -456,9 +457,9 @@
     <div class="modal-form-wrap" id="modal-form-wrap">
       <div class="modal-loading" id="modal-loading">Loading form&hellip;</div>
       <iframe
-        data-src="https://app.miahairtransplant.com/widget/form/Bn4RA087rTBKpgsw9BiW"
-        style="width:100%;border:none;border-radius:3px"
-        id="inline-Bn4RA087rTBKpgsw9BiW"
+        data-src="https://app.miahairtransplant.com/widget/form/Lgy8Ea0HN9iY7WX07NXs"
+        style="width:100%;height:655px;border:none;border-radius:3px"
+        id="inline-Lgy8Ea0HN9iY7WX07NXs"
         data-layout="{'id':'INLINE'}"
         data-trigger-type="alwaysShow"
         data-trigger-value=""
@@ -466,11 +467,11 @@
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
-        data-form-name="EN - Online Consultation - Copy"
-        data-height="1430"
-        data-layout-iframe-id="inline-Bn4RA087rTBKpgsw9BiW"
-        data-form-id="Bn4RA087rTBKpgsw9BiW"
-        title="EN - Online Consultation - Copy">
+        data-form-name="EN Google Ads"
+        data-height="655"
+        data-layout-iframe-id="inline-Lgy8Ea0HN9iY7WX07NXs"
+        data-form-id="Lgy8Ea0HN9iY7WX07NXs"
+        title="EN Google Ads">
       </iframe>
     </div>
   </div>
@@ -497,21 +498,17 @@
       var formLoaded = false;
       function loadConsultForm() {
         if (formLoaded) return; formLoaded = true;
-        var frame = document.getElementById('inline-Bn4RA087rTBKpgsw9BiW');
+        var frame = document.getElementById('inline-Lgy8Ea0HN9iY7WX07NXs');
         frame.src = frame.getAttribute('data-src');
         var wrap = document.getElementById('modal-form-wrap');
-        function done() { wrap.classList.add('loaded'); clearInterval(poll); }
+        function done() { wrap.classList.add('loaded'); }
         // Primary signal: the iframe's own load event fires as soon as the GHL
         // form page finishes loading (reliable and fast, cross-origin safe).
         frame.addEventListener('load', done);
-        // Backups: GHL's resize postMessage, a height-change poll, and a timeout.
+        // Backups: GHL's resize postMessage and a timeout, in case load is slow.
         window.addEventListener('message', function (e) {
           if (typeof e.origin === 'string' && e.origin.indexOf('miahairtransplant.com') !== -1) done();
         });
-        var poll = setInterval(function () {
-          var fr = document.getElementById('inline-Bn4RA087rTBKpgsw9BiW');
-          if (fr && fr.style.height && fr.style.height !== '1430px') { done(); }
-        }, 300);
         setTimeout(done, 8000);
         var script = document.createElement('script');
         script.src = 'https://app.miahairtransplant.com/js/form_embed.js';
