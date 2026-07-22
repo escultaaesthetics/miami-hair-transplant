@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Transplant in Miami | Free Consultation | Miami Hair Transplant</title>
+  <meta name="description" content="FUE hair transplants in Miami, physician-led by Dr. Annie Casta, MD. Send your photos for a free online consultation and a personalized plan. Call (786) 952-6821.">
+
+  <!-- PPC landing page: keep out of the organic index, let ad crawlers in -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://miahairtransplant.com/google-ads/">
+
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Miami, Florida">
+  <meta name="geo.position" content="25.7907;-80.2782">
+  <meta name="ICBM" content="25.7907, -80.2782">
+
+  <meta property="og:title" content="Hair Transplant in Miami | Free Consultation">
+  <meta property="og:description" content="Physician-led FUE hair restoration in Miami. Send your photos for a free consultation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://miahairtransplant.com/google-ads/">
+  <meta property="og:site_name" content="Miami Hair Transplant">
+  <meta property="og:image" content="https://miahairtransplant.com/images/brand/banner-partners.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css?v=21">
+
+  <style>
+    /* ===== Google Ads landing page (self-contained layout) ===== */
+    html, body.lp { max-width: 100%; overflow-x: hidden; }
+    .lp *, .lp *::before, .lp *::after { box-sizing: border-box; }
+    /* Grid/flex children default to min-width:auto and refuse to shrink below
+       their content, which pushes the layout wider than the phone. Force them
+       to shrink and cap every block to the viewport. */
+    .lp-hero > *, .lp-form-card, .lp-form-wrap, .lp-form-wrap iframe,
+    .lp-sub, .lp-usps li, .lp-trust > div, .lp-rev, .lp-step, .lp-doc > * { min-width: 0; max-width: 100%; }
+    .lp img, .lp iframe { max-width: 100%; }
+    .lp { max-width: 100%; overflow-x: hidden; }
+    .lp-header {
+      position: sticky; top: 0; z-index: 40;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 24px; background: rgba(11,8,6,.92);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(217,171,83,.18);
+    }
+    .lp-header img { height: 54px; width: auto; }
+    .lp-call {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 14px;
+      border: 1px solid rgba(217,171,83,.5); color: #f0d79a; text-decoration: none;
+      background: rgba(20,15,10,.7);
+    }
+    .lp-call svg { fill: #f0d79a; }
+
+    /* Hero: copy + form side by side */
+    .lp-hero {
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px;
+      align-items: start; max-width: 1200px; margin: 0 auto; padding: 54px 24px 40px;
+    }
+    .lp-hero .eyebrow { color: #b2a58a; }
+    .lp-h1 {
+      font-size: clamp(30px, 24px + 2.2vw, 50px); line-height: 1.06; margin: 10px 0 16px;
+      font-weight: 800; color: #f5efe4;
+    }
+    .lp-h1 span { color: #e2c06a; }
+    .lp-sub { font-size: 17px; line-height: 1.6; color: #c9bda6; max-width: 30em; margin-bottom: 22px; }
+    .lp-usps { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 12px; }
+    .lp-usps li { display: flex; align-items: flex-start; gap: 11px; font-size: 15.5px; color: #d8ccb5; }
+    .lp-usps .ck {
+      flex: 0 0 22px; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%;
+      background: linear-gradient(180deg, #f0d79a, #d9ab53); color: #1a1206;
+      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
+    }
+    .lp-rating { display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px;
+      border: 1px solid rgba(217,171,83,.3); border-radius: 999px; background: rgba(20,15,10,.6); font-size: 13px; }
+    .lp-rating b { color: #f5efe4; } .lp-rating .st { color: #e8c87a; letter-spacing: .1em; }
+    .lp-rating .nt { color: #b0a48d; font-weight: 600; }
+
+    /* Form card */
+    .lp-form-card {
+      background: rgba(20,15,10,.75); border: 1px solid rgba(217,171,83,.3);
+      border-radius: 18px; padding: 20px; box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    }
+    .lp-form-head h2 { margin: 4px 4px 4px; font-size: 21px; color: #f0d79a; font-weight: 800; }
+    .lp-form-head p { margin: 0 4px 14px; font-size: 13.5px; line-height: 1.55; color: #b7ab93; }
+    .lp-form-wrap { position: relative; background: #ffffff; border-radius: 10px; overflow: hidden; min-height: 520px; }
+    .lp-form-loading {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      color: #7a7266; font-size: 14px; background: #fff; z-index: 1;
+    }
+    .lp-form-wrap iframe { position: relative; z-index: 2; display: block; width: 100%; min-height: 1430px; border: none; }
+
+    /* Trust strip */
+    .lp-trust {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: rgba(217,171,83,.16); border-top: 1px solid rgba(217,171,83,.16);
+      border-bottom: 1px solid rgba(217,171,83,.16);
+    }
+    .lp-trust div { background: #0b0806; padding: 18px 16px; text-align: center; font-size: 13.5px; color: #d8ccb5; font-weight: 600; }
+    .lp-trust b { display: block; color: #f0d79a; font-size: 15px; margin-bottom: 2px; }
+
+    /* Section shell */
+    .lp-sec { max-width: 1160px; margin: 0 auto; padding: 56px 24px; }
+    .lp-sec h2 { text-align: center; font-size: clamp(24px, 20px + 1.4vw, 34px); color: #f5efe4; font-weight: 800; margin: 0 0 8px; }
+    .lp-sec .lp-sec-lede { text-align: center; color: #b0a48d; max-width: 40em; margin: 0 auto 34px; font-size: 15.5px; }
+
+    /* Proof: before/after */
+    .lp-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .lp-proof figure { margin: 0; border: 1px solid rgba(217,171,83,.22); border-radius: 14px; overflow: hidden; background: #14100a; }
+    .lp-proof img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+
+    /* Steps */
+    .lp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .lp-step { text-align: center; padding: 26px 22px; border: 1px solid rgba(217,171,83,.22); border-radius: 16px; background: rgba(20,15,10,.5); }
+    .lp-step .n { width: 44px; height: 44px; margin: 0 auto 14px; border-radius: 50%;
+      background: linear-gradient(180deg, #f0d79a, #d9ab53); color: #1a1206; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .lp-step h3 { margin: 0 0 8px; font-size: 17px; color: #f0d79a; }
+    .lp-step p { margin: 0; font-size: 14px; line-height: 1.6; color: #c1b59d; }
+
+    /* Reviews */
+    .lp-reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .lp-rev { border: 1px solid rgba(217,171,83,.22); border-radius: 16px; padding: 24px; background: rgba(20,15,10,.6); display: flex; flex-direction: column; gap: 12px; }
+    .lp-rev .st { color: #e8c87a; letter-spacing: .1em; font-size: 13px; }
+    .lp-rev blockquote { margin: 0; font-size: 14px; line-height: 1.65; color: #c9bda6; }
+    .lp-rev .who { margin-top: auto; font-size: 13px; font-weight: 700; color: #f0d79a; }
+    .lp-rev .src { font-size: 11.5px; color: #a0937c; font-weight: 500; }
+
+    /* Doctor */
+    .lp-doc { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center;
+      max-width: 900px; margin: 0 auto; padding: 30px; border: 1px solid rgba(217,171,83,.22);
+      border-radius: 18px; background: rgba(20,15,10,.5); }
+    .lp-doc img { width: 200px; height: 200px; object-fit: cover; object-position: top center; border-radius: 14px; }
+    .lp-doc h3 { margin: 0 0 4px; color: #f0d79a; font-size: 20px; }
+    .lp-doc .role { color: #b0a48d; font-size: 13px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .lp-doc p { margin: 0; color: #c9bda6; font-size: 15px; line-height: 1.65; }
+
+    /* Final CTA */
+    .lp-final { text-align: center; background:
+      radial-gradient(ellipse 60% 60% at 50% 40%, rgba(217,171,83,.14), transparent); padding: 66px 24px; }
+    .lp-final h2 { font-size: clamp(26px, 22px + 1.6vw, 40px); color: #f5efe4; margin: 0 0 12px; font-weight: 800; }
+    .lp-final p { color: #c1b59d; margin: 0 0 26px; font-size: 16px; }
+    .lp-btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 16px 34px; border-radius: 999px;
+      background: linear-gradient(180deg, #f0d79a, #d9ab53); color: #1a1206; font-weight: 800; font-size: 16px;
+      text-decoration: none; border: none; cursor: pointer; box-shadow: 0 12px 30px rgba(217,171,83,.28);
+    }
+    .lp-btn:active { transform: scale(.97); }
+    .lp-or { color: #8f8471; font-size: 14px; margin-top: 18px; }
+    .lp-or a { color: #f0d79a; font-weight: 700; text-decoration: none; }
+
+    /* Footer */
+    .lp-footer { border-top: 1px solid rgba(217,171,83,.16); padding: 40px 24px 34px; text-align: center; }
+    .lp-footer .nap { color: #b0a48d; font-size: 14px; line-height: 1.8; }
+    .lp-footer .nap a { color: #f0d79a; text-decoration: none; }
+    .lp-footer .legal { margin-top: 14px; font-size: 12.5px; color: #7a7266; }
+    .lp-footer .legal a { color: #9c9079; text-decoration: none; margin: 0 6px; }
+
+    /* Sticky mobile action bar */
+    .lp-bar { display: none; }
+
+    @media (max-width: 900px) {
+      .lp-hero { grid-template-columns: 1fr; gap: 28px; padding: 30px 20px 28px; }
+      .lp-trust { grid-template-columns: 1fr 1fr; }
+      .lp-proof, .lp-steps, .lp-reviews { grid-template-columns: 1fr; }
+      .lp-reviews { grid-template-columns: 1fr; }
+      .lp-doc { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .lp-doc img { width: 160px; height: 160px; }
+    }
+    @media (max-width: 700px) {
+      .lp-header { padding: 10px 16px; }
+      .lp-header img { height: 46px; }
+      .lp-call span { display: none; }
+      .lp-call { padding: 10px; }
+      .lp-proof { grid-template-columns: 1fr 1fr; }
+      .lp-sec { padding: 44px 20px; }
+      /* Sticky bottom bar with call + form CTA */
+      .lp-bar {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(11,8,6,.96); border-top: 1px solid rgba(217,171,83,.22);
+        -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      }
+      .lp-bar a { display: flex; align-items: center; justify-content: center; gap: 7px;
+        padding: 13px; border-radius: 12px; font-weight: 800; font-size: 14.5px; text-decoration: none; }
+      .lp-bar .b-call { border: 1px solid rgba(217,171,83,.5); color: #f0d79a; background: rgba(20,15,10,.7); }
+      .lp-bar .b-form { background: linear-gradient(180deg, #f0d79a, #d9ab53); color: #1a1206; }
+      body { padding-bottom: 74px; }
+    }
+  </style>
+</head>
+<body class="lp">
+
+  <header class="lp-header">
+    <img src="../images/brand/logo-gold.svg" alt="Miami Hair Transplant" width="180" height="54">
+    <a class="lp-call" href="tel:+17869526821">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M6.8 2.8c.7-.2 1.4.1 1.8.7l1.9 3c.4.6.3 1.4-.2 1.9l-1.2 1.2c1 2 2.6 3.6 4.6 4.6l1.2-1.2c.5-.5 1.3-.6 1.9-.2l3 1.9c.6.4.9 1.1.7 1.8l-.7 2.6c-.2.8-.9 1.3-1.7 1.3C10.6 20.4 3.6 13.4 3.6 5.2c0-.8.5-1.5 1.3-1.7z"/></svg>
+      <span>(786) 952-6821</span>
+    </a>
+  </header>
+
+  <!-- HERO + FORM -->
+  <section class="lp-hero" id="top">
+    <div>
+      <div class="eyebrow">Miami Hair Transplant</div>
+      <h1 class="lp-h1">Get the Hair You <span>Deserve</span> in Miami</h1>
+      <p class="lp-sub">Physician-led FUE hair restoration that grows in looking like your own. Send us a few photos and get a free, no-pressure consultation with a personalized plan.</p>
+      <ul class="lp-usps">
+        <li><span class="ck">&#10003;</span> FUE and Sapphire FUE that leaves no linear scar</li>
+        <li><span class="ck">&#10003;</span> Every case supervised by Dr. Annie Casta, MD</li>
+        <li><span class="ck">&#10003;</span> One team with you from consultation to the final follow-up</li>
+        <li><span class="ck">&#10003;</span> Financing available, so cost isn't what stops you</li>
+      </ul>
+      <div class="lp-rating">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.39 3.62v3h3.87c2.26-2.09 3.57-5.17 3.57-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.93-2.91l-3.87-3c-1.07.72-2.44 1.14-4.06 1.14-3.12 0-5.77-2.11-6.71-4.95H1.29v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.28A7.2 7.2 0 0 1 4.91 12c0-.79.14-1.56.38-2.28v-3.1H1.29a12 12 0 0 0 0 10.76l4-3.1z"/><path fill="#EA4335" d="M12 4.77c1.76 0 3.34.6 4.58 1.79l3.44-3.44C17.95 1.19 15.23 0 12 0A12 12 0 0 0 1.29 6.62l4 3.1C6.23 6.88 8.88 4.77 12 4.77z"/></svg>
+        <b>5.0</b><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="nt">Reviews on Google</span>
+      </div>
+    </div>
+
+    <div class="lp-form-card" id="form">
+      <div class="lp-form-head">
+        <h2>Free Online Consultation</h2>
+        <p>Share your hair loss photos and details. Our specialist reviews them and a coordinator contacts you with personalized options.</p>
+      </div>
+      <div class="lp-form-wrap">
+        <div class="lp-form-loading" id="lp-loading">Loading form&hellip;</div>
+        <iframe
+          src="https://app.miahairtransplant.com/widget/form/Bn4RA087rTBKpgsw9BiW"
+          id="inline-Bn4RA087rTBKpgsw9BiW"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="EN - Online Consultation - Copy"
+          data-height="1430"
+          data-layout-iframe-id="inline-Bn4RA087rTBKpgsw9BiW"
+          data-form-id="Bn4RA087rTBKpgsw9BiW"
+          title="EN - Online Consultation - Copy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="lp-trust">
+    <div><b>5.0&#9733;</b> Google reviews</div>
+    <div><b>Physician-led</b> Dr. Annie Casta, MD</div>
+    <div><b>No linear scar</b> FUE technique</div>
+    <div><b>Financing</b> Flexible plans</div>
+  </div>
+
+  <!-- PROOF -->
+  <section class="lp-sec">
+    <h2>Real Patients, Real Results</h2>
+    <p class="lp-sec-lede">Unretouched before and after photos from our Miami clinic.</p>
+    <div class="lp-proof">
+      <figure><img src="../images/cases/case-02/1.jpg" alt="Hair transplant before and after result, Miami Hair Transplant patient" loading="lazy"></figure>
+      <figure><img src="../images/cases/case-09/1.jpg" alt="Hairline restoration before and after, Miami Hair Transplant patient" loading="lazy"></figure>
+      <figure><img src="../images/cases/case-15/1.jpg" alt="FUE hair transplant before and after, Miami Hair Transplant patient" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="lp-sec" style="padding-top:0">
+    <h2>How It Works</h2>
+    <p class="lp-sec-lede">Three simple steps, no pressure and no cost to start.</p>
+    <div class="lp-steps">
+      <div class="lp-step"><div class="n">1</div><h3>Send your photos</h3><p>Fill out the short form and attach a few photos of your hair. It takes a couple of minutes.</p></div>
+      <div class="lp-step"><div class="n">2</div><h3>Free specialist review</h3><p>Our team reviews your photos and hair loss pattern to see what fits your case.</p></div>
+      <div class="lp-step"><div class="n">3</div><h3>Your personalized plan</h3><p>A coordinator contacts you with your options, an approximate graft count, and pricing.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="lp-sec" style="padding-top:0">
+    <h2>What Our Patients Say</h2>
+    <div class="lp-reviews">
+      <div class="lp-rev">
+        <span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote>"After a lot of research, I realized Miami Hair Transplant was the only right choice for my beard transplant. The results look natural and have boosted my confidence a lot."</blockquote>
+        <div class="who">Lazaro Jesus Leon Acosta <span class="src">&middot; Google review</span></div>
+      </div>
+      <div class="lp-rev">
+        <span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote>"Everyone from the staff to the Doctors are incredible. They are patient and warm, and made it their mission to complete everything. I would definitely recommend them."</blockquote>
+        <div class="who">Omar Perez <span class="src">&middot; Google review</span></div>
+      </div>
+      <div class="lp-rev">
+        <span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote>"From the moment I walked in, I felt welcomed and comfortable. They took the time to explain every step and answered all my questions."</blockquote>
+        <div class="who">Rubi Viamonte <span class="src">&middot; Google review</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTOR -->
+  <section class="lp-sec" style="padding-top:0">
+    <div class="lp-doc">
+      <img src="../images/staff/annie-casta.jpg" alt="Dr. Annie Casta, MD, Medical Director at Miami Hair Transplant">
+      <div>
+        <h3>Dr. Annie Casta, MD</h3>
+        <div class="role">Medical Director</div>
+        <p>Every procedure at Miami Hair Transplant is planned and supervised by Dr. Casta, from the first scalp evaluation to your final follow-up. Her standard is a result that looks natural in person, at arm's length, in daylight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="lp-final">
+    <h2>Ready to Get Started?</h2>
+    <p>Your consultation is free and there's no obligation.</p>
+    <a class="lp-btn" href="#form">Get My Free Consultation</a>
+    <div class="lp-or">Or call us now at <a href="tel:+17869526821">(786) 952-6821</a></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <div class="nap">
+      <strong style="color:#f0d79a">Miami Hair Transplant</strong><br>
+      860 NW LeJeune Rd, Suite 402, Miami, FL 33126<br>
+      <a href="tel:+17869526821">(786) 952-6821</a> &middot; <a href="mailto:info@miahairtransplant.com">info@miahairtransplant.com</a><br>
+      Mon-Fri: 8 AM to 5 PM
+    </div>
+    <div class="legal">
+      &copy; 2026 Miami Hair Transplant.
+      <a href="../privacy.html">Privacy Policy</a> &middot;
+      <a href="../terms.html">Terms of Use</a>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile action bar -->
+  <div class="lp-bar">
+    <a class="b-call" href="tel:+17869526821">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M6.8 2.8c.7-.2 1.4.1 1.8.7l1.9 3c.4.6.3 1.4-.2 1.9l-1.2 1.2c1 2 2.6 3.6 4.6 4.6l1.2-1.2c.5-.5 1.3-.6 1.9-.2l3 1.9c.6.4.9 1.1.7 1.8l-.7 2.6c-.2.8-.9 1.3-1.7 1.3C10.6 20.4 3.6 13.4 3.6 5.2c0-.8.5-1.5 1.3-1.7z"/></svg>
+      Call
+    </a>
+    <a class="b-form" href="#form">Free Consultation</a>
+  </div>
+
+  <script src="https://app.miahairtransplant.com/js/form_embed.js"></script>
+  <script>
+    // Hide the "Loading form" placeholder once the GHL form renders.
+    // form_embed.js posts a resize message from the miahairtransplant.com origin;
+    // fall back to the iframe load event and a timeout so it never sticks.
+    (function () {
+      var loading = document.getElementById('lp-loading');
+      var frame = document.getElementById('inline-Bn4RA087rTBKpgsw9BiW');
+      function hide() { if (loading) loading.style.display = 'none'; }
+      window.addEventListener('message', function (e) {
+        if (typeof e.origin === 'string' && e.origin.indexOf('miahairtransplant.com') !== -1) hide();
+      });
+      if (frame) frame.addEventListener('load', function () { setTimeout(hide, 1200); });
+      setTimeout(hide, 6000);
+
+      // Smooth-scroll the in-page CTAs to the form.
+      document.querySelectorAll('a[href="#form"]').forEach(function (a) {
+        a.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
