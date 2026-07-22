@@ -125,10 +125,37 @@
     .lp-sec h2 { text-align: center; font-size: clamp(24px, 20px + 1.4vw, 34px); color: #f5efe4; font-weight: 800; margin: 0 0 8px; }
     .lp-sec .lp-sec-lede { text-align: center; color: #b0a48d; max-width: 40em; margin: 0 auto 34px; font-size: 15.5px; }
 
-    /* Proof: before/after */
-    .lp-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .lp-proof figure { margin: 0; border: 1px solid rgba(217,171,83,.22); border-radius: 14px; overflow: hidden; background: #14100a; }
-    .lp-proof img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    /* Cases slider (outer): one full case per view, swipe + arrows + dots.
+       Each case is a .bac carousel (collage + before/after angles), styled by
+       site.css. Inner nav is click-only, so it never fights the outer swipe. */
+    .lp-cases-slider { position: relative; max-width: 400px; margin: 0 auto; }
+    .lp-cases {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .lp-cases::-webkit-scrollbar { display: none; }
+    .lp-case { flex: 0 0 100%; min-width: 0; scroll-snap-align: center; padding: 0 3px; }
+    .lp-case .ba-item { gap: 12px; }
+    .lp-cases-arrow {
+      position: absolute; top: 42%; transform: translateY(-50%); z-index: 6;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid rgba(217,171,83,.4); background: rgba(18,13,8,.9);
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      color: #f0d79a; font-size: 24px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s ease, background .2s ease, opacity .2s ease;
+    }
+    .lp-cases-arrow:hover { background: rgba(30,22,14,.96); }
+    .lp-cases-arrow:active { transform: translateY(-50%) scale(.92); }
+    .lp-cases-arrow.prev { left: -56px; }
+    .lp-cases-arrow.next { right: -56px; }
+    .lp-cases-arrow[disabled] { opacity: .3; pointer-events: none; }
+    .lp-cases-dots { display: flex; justify-content: center; gap: 9px; margin-top: 16px; }
+    .lp-cases-dots button { width: 9px; height: 9px; padding: 0; border-radius: 50%; cursor: pointer;
+      border: 1px solid rgba(217,171,83,.55); background: transparent; transition: background .2s ease, width .2s ease; }
+    .lp-cases-dots button.active { background: #e2c06a; border-color: #e2c06a; width: 22px; border-radius: 999px; }
+    /* On phones the side arrows have no room; swipe + dots handle it there. */
+    @media (max-width: 760px) { .lp-cases-arrow { display: none; } }
 
     /* Steps */
     .lp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -261,10 +288,84 @@
   <section class="lp-sec">
     <h2>Real Patients, Real Results</h2>
     <p class="lp-sec-lede">Unretouched before and after photos from our Miami clinic.</p>
-    <div class="lp-proof">
-      <figure><img src="../images/cases/case-02/1.jpg" alt="Hair transplant before and after result, Miami Hair Transplant patient" loading="lazy"></figure>
-      <figure><img src="../images/cases/case-09/1.jpg" alt="Hairline restoration before and after, Miami Hair Transplant patient" loading="lazy"></figure>
-      <figure><img src="../images/cases/case-15/1.jpg" alt="FUE hair transplant before and after, Miami Hair Transplant patient" loading="lazy"></figure>
+    <div class="lp-cases-slider">
+      <button class="lp-cases-arrow prev" type="button" aria-label="Previous case">&#8249;</button>
+      <div class="lp-cases" id="lp-cases">
+        <div class="lp-case">
+          <div class="ba-item bac">
+            <div class="ba-box bac-viewer">
+              <img class="bac-slide active" src="../images/cases/case-02/1.jpg" alt="Beard and hairline restoration before and after, Miami Hair Transplant patient" loading="eager">
+              <img class="bac-slide" src="../images/cases/case-02/2.jpg" alt="Beard and hairline restoration, additional photo 1" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-02/3.jpg" alt="Beard and hairline restoration, additional photo 2" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-02/4.jpg" alt="Beard and hairline restoration, additional photo 3" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-02/5.jpg" alt="Beard and hairline restoration, additional photo 4" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-02/6.jpg" alt="Beard and hairline restoration, additional photo 5" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-02/7.jpg" alt="Beard and hairline restoration, additional photo 6" loading="lazy">
+              <button class="bac-nav bac-prev" type="button" aria-label="Previous photo">&#8249;</button>
+              <button class="bac-nav bac-next" type="button" aria-label="Next photo">&#8250;</button>
+            </div>
+            <div class="bac-dots" role="tablist" aria-label="Beard and hairline restoration photos">
+              <button class="bac-dot" type="button" role="tab" aria-current="true" aria-label="Photo 1 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 2 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 3 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 4 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 5 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 6 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 7 of 7"></button>
+            </div>
+          </div>
+        </div>
+        <div class="lp-case">
+          <div class="ba-item bac">
+            <div class="ba-box bac-viewer">
+              <img class="bac-slide active" src="../images/cases/case-09/1.jpg" alt="Hairline restoration before and after, Miami Hair Transplant patient" loading="eager">
+              <img class="bac-slide" src="../images/cases/case-09/2.jpg" alt="Hairline restoration, additional photo 1" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-09/3.jpg" alt="Hairline restoration, additional photo 2" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-09/4.jpg" alt="Hairline restoration, additional photo 3" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-09/5.jpg" alt="Hairline restoration, additional photo 4" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-09/6.jpg" alt="Hairline restoration, additional photo 5" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-09/7.jpg" alt="Hairline restoration, additional photo 6" loading="lazy">
+              <button class="bac-nav bac-prev" type="button" aria-label="Previous photo">&#8249;</button>
+              <button class="bac-nav bac-next" type="button" aria-label="Next photo">&#8250;</button>
+            </div>
+            <div class="bac-dots" role="tablist" aria-label="Hairline restoration photos">
+              <button class="bac-dot" type="button" role="tab" aria-current="true" aria-label="Photo 1 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 2 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 3 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 4 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 5 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 6 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 7 of 7"></button>
+            </div>
+          </div>
+        </div>
+        <div class="lp-case">
+          <div class="ba-item bac">
+            <div class="ba-box bac-viewer">
+              <img class="bac-slide active" src="../images/cases/case-15/1.jpg" alt="FUE hair transplant before and after, Miami Hair Transplant patient" loading="eager">
+              <img class="bac-slide" src="../images/cases/case-15/2.jpg" alt="FUE hair transplant, additional photo 1" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-15/3.jpg" alt="FUE hair transplant, additional photo 2" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-15/4.jpg" alt="FUE hair transplant, additional photo 3" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-15/5.jpg" alt="FUE hair transplant, additional photo 4" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-15/6.jpg" alt="FUE hair transplant, additional photo 5" loading="lazy">
+              <img class="bac-slide" src="../images/cases/case-15/7.jpg" alt="FUE hair transplant, additional photo 6" loading="lazy">
+              <button class="bac-nav bac-prev" type="button" aria-label="Previous photo">&#8249;</button>
+              <button class="bac-nav bac-next" type="button" aria-label="Next photo">&#8250;</button>
+            </div>
+            <div class="bac-dots" role="tablist" aria-label="FUE hair transplant photos">
+              <button class="bac-dot" type="button" role="tab" aria-current="true" aria-label="Photo 1 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 2 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 3 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 4 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 5 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 6 of 7"></button>
+              <button class="bac-dot" type="button" role="tab" aria-label="Photo 7 of 7"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="lp-cases-arrow next" type="button" aria-label="Next case">&#8250;</button>
+      <div class="lp-cases-dots" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -418,6 +519,65 @@
       scrim.addEventListener('click', function () { setOpen(false); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) setOpen(false); });
       if (location.hash === '#consult') setOpen(true);
+    })();
+
+    // Before/after cases: an outer slider (swipe/arrows/dots) of cases, each an
+    // inner photo carousel (collage + before/after angles). Inner nav is
+    // click-only so it never competes with the outer swipe.
+    (function () {
+      var scroller = document.getElementById('lp-cases');
+      if (!scroller) return;
+      var slider = scroller.closest('.lp-cases-slider');
+      var cases = Array.prototype.slice.call(scroller.querySelectorAll('.lp-case'));
+      var prev = slider.querySelector('.lp-cases-arrow.prev');
+      var next = slider.querySelector('.lp-cases-arrow.next');
+      var dotsWrap = slider.querySelector('.lp-cases-dots');
+
+      // Inner carousel per case (collage + angles). Slides 2+ are lazy and
+      // display:none, so warm() flips them to eager (browsers never fetch a
+      // hidden lazy image) the first time a case is shown or navigated.
+      cases.forEach(function (cs) {
+        var card = cs.querySelector('.bac');
+        var slides = Array.prototype.slice.call(card.querySelectorAll('.bac-slide'));
+        var dots = Array.prototype.slice.call(card.querySelectorAll('.bac-dot'));
+        var i = 0;
+        card._warm = function () { slides.forEach(function (im) { im.loading = 'eager'; }); };
+        function show(n) {
+          i = (n + slides.length) % slides.length;
+          slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
+          dots.forEach(function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+        }
+        card.querySelector('.bac-prev').addEventListener('click', function (e) { e.preventDefault(); card._warm(); show(i - 1); });
+        card.querySelector('.bac-next').addEventListener('click', function (e) { e.preventDefault(); card._warm(); show(i + 1); });
+        dots.forEach(function (d, k) { d.addEventListener('click', function (e) { e.preventDefault(); card._warm(); show(k); }); });
+      });
+
+      // Outer slider
+      function page() { return scroller.clientWidth; }
+      function maxScroll() { return scroller.scrollWidth - scroller.clientWidth; }
+      function activeIndex() { return page() > 0 ? Math.round(scroller.scrollLeft / page()) : 0; }
+      cases.forEach(function (_, idx) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', 'Case ' + (idx + 1) + ' of ' + cases.length);
+        b.addEventListener('click', function () { scroller.scrollTo({ left: idx * page(), behavior: 'smooth' }); });
+        dotsWrap.appendChild(b);
+      });
+      function warmActive() { var c = cases[activeIndex()]; if (c) { var card = c.querySelector('.bac'); if (card._warm) card._warm(); } }
+      function sync() {
+        var a = activeIndex();
+        Array.prototype.forEach.call(dotsWrap.children, function (d, k) { d.classList.toggle('active', k === a); });
+        if (prev) prev.disabled = scroller.scrollLeft <= 2;
+        if (next) next.disabled = scroller.scrollLeft >= maxScroll() - 2;
+        warmActive();
+      }
+      if (prev) prev.addEventListener('click', function () { scroller.scrollBy({ left: -page(), behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function () { scroller.scrollBy({ left: page(), behavior: 'smooth' }); });
+      var ticking = 0;
+      scroller.addEventListener('scroll', function () { if (ticking) return; ticking = 1; requestAnimationFrame(function () { ticking = 0; sync(); }); }, { passive: true });
+      window.addEventListener('resize', function () { sync(); }, { passive: true });
+      var firstCard = cases[0] && cases[0].querySelector('.bac');
+      if (firstCard && firstCard._warm) firstCard._warm();
+      sync();
     })();
   </script>
 </body>
